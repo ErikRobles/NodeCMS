@@ -4,7 +4,8 @@
   "description": "Node JS CMS Application",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "build": "node ./node_modules/parcel-bundler/bin/cli.js build --out-dir www/ --public-url ./assets client/index.html"
   },
   "author": "Erik Robles",
   "license": "ISC",

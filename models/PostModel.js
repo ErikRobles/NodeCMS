@@ -17,5 +17,29 @@ const PostSchema = new Schema({
     creationDate: {
         type: Date,
         default: Date.now()
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'category'
+    },
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'comment'
+        }
+    ],
+    allowComments: {
+        type: Boolean,
+        default: false
+    },
+    file: {
+        type: String,
+        default: ''
     }
 });
+
+module.exports = { Post: mongoose.model('post', PostSchema) };

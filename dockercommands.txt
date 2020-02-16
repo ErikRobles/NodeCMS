@@ -1,0 +1,11 @@
+docker pull mongo
+docker ps
+docker run -it -d --rm -p 27017:27017 --name mongo --hostname mongo mongo 
+
+
+docker build -t nodejscms . --no-cache
+docker run -it --rm --link mongo -p 8080:80 -e MongoDbUrl="mongodb://mongo:27017/nodecms" --name node nodejscms
+
+or
+
+docker run -it --rm --link mongo -p 49160:8080 -e MongoDbUrl="mongodb://mongo:27017/nodecms" --name node nodejscms
